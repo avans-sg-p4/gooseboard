@@ -7,11 +7,13 @@ Serious gaming project
 npm install
 ```
 
-## Start game
+## Run application
 
 ```bash
 npm start
 ```
+
+Server running at default configuration http://localhost:1234
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

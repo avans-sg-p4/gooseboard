@@ -38,6 +38,18 @@ actions.set(17, new Question(
     'Dit kan bijvoorbeeld tijdens een rechtszaak zijn. Dit is wanneer er keuzes wordt gemaakt door data wat niet tot betrekking van de persoon in de rechtszaak is. Hierdoor wordt een beslissing gemaakt die niet betrekking heeft tot degene waar de rechtszaak over gaat.'   
 ));
 
+// Question 20
+actions.set(20, new Question(
+    "Wat is een nadeel van een algoritme?",
+    [
+        'Een oneerlijk besluit kan genomen worden',
+        'Je bent niet anoniem op het internet',
+        'Je data wordt verwijderd'        
+    ],
+    0,
+    'Dit kan bijvoorbeeld tijdens een rechtszaak zijn. Dit is wanneer er keuzes wordt gemaakt door data wat niet tot betrekking van de persoon in de rechtszaak is. Hierdoor wordt een beslissing gemaakt die niet betrekking heeft tot degene waar de rechtszaak over gaat.'   
+));
+
 // Question 23
 actions.set(23, new Question(
     "Waarvoor worden algoritme gebruikt?",
@@ -87,6 +99,18 @@ actions.set(41, new Question(
 
 // Question 47
 actions.set(47, new Question(
+    "In welk geval kan een algoritme discrimineren",
+    [
+        'Bij het uitkiezen wie wel of geen fraude pleegt a.h.v vooraf bepaalde gegevens.',
+        'Bij het bepalen hoeveel iemand moet betalen',
+        'Bij het bepalen van de juiste match tussen personen'        
+    ],
+    0,
+    'Dit is omdat een algoritme data van een bepaalde doelgroep kan gebruiken voor een bepaald persoon terwijl deze data niet bij dit persoon hoort. Bijvoorbeeld wanneer een algoritme leert over dat donkere mensen veel drugs handelen en dat een beslissing wordt gebaseerd op deze informatie voor een donkere man. '   
+));
+
+// Question 49
+actions.set(49, new Question(
     "In welk geval kan een algoritme discrimineren",
     [
         'Bij het uitkiezen wie wel of geen fraude pleegt a.h.v vooraf bepaalde gegevens.',
