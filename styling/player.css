@@ -1,0 +1,7 @@
+.player-item {
+    top: 0;
+    left: 0;
+    width: 80px;
+    position: absolute;
+    transition: all 500ms ease-in-out;
+}

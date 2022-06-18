@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Goose Board</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    <link rel="stylesheet" href="styling/style.css">
+    <link rel="stylesheet" href="styling/game-card.css">
+    <link rel="stylesheet" href="styling/player.css">
+    <link rel="stylesheet" href="styling/custom-checkbox.css">
+
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <div id="start-screen">
+        <div class="start-screen-content">
+            <h1 class="start-screen-title">Welcome to Goose Board</h1>
+            <br />
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At delectus quae possimus eius ad nam iure,
+                excepturi quisquam animi incidunt accusantium voluptatum non, atque eligendi distinctio consectetur
+                facere cumque minus?</p>
+            <br />
+            <button class="btn" id="start-game-btn">start the game</button>
+        </div>
+    </div>
+
+    <div id="questionModal" class="modal game-card">
+        <div class="flip-card">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="/assets/cards/card_back.svg" alt="card back">
+                </div>
+                <div class="flip-card-back">
+                    <img src="/assets/cards/card_front.svg" alt="card front">
+                    <div class="flip-card-back-inner"></div>
+                    <button class="btn" id="submit-answer-btn">Submit answer</button>
+                    <button class="btn danger" id="close-modal-btn">Close</button>
+                </div>
+            </div>
+        </div>
+        <a href="#" rel="modal:close" style="display: none;" id="pseudo-close-modal-btn">Close</a>
+    </div>
+
+    <div id="app"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="./src/index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Kdam Thmor Pro', sans-serif;
+}
+
+body {
+    background-image: url('/assets/gameboard_empty.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#start-screen {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/assets/gameboard_empty.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 99;
+}
+
+.start-screen-title {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 38px;
+}
+
+.start-screen-content {
+    width: 625px;    
+    padding: 45px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.btn {
+    border-radius: 60px;
+    border: none;
+    padding: 12px 30px;
+    min-width: 150px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #C53EFC;
+    color: #fff;
+    transition: all 200ms ease;
+    box-shadow: 0 3px 0 0 #8F05C7;
+}
+
+.btn:disabled {
+    background-color: #E7E6E6;
+    box-shadow: 0 3px 0 0 #CCCCCC;
+    cursor:not-allowed;
+}
+
+.btn.danger {
+    background-color: #FC3E3E;
+    box-shadow: 0 3px 0 0 #C70511;
+} 
+
+.btn:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+#board {    
+    height: 600px;
+    object-fit: contain;    
+}
+
+#inline-board .item,
+#inline-board circle {
+    stroke: transparent !important;
+}
+
+#game-data {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;    
+    text-align: center;
+}
+
+#turn-indicator {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    padding: 25px;
+    background-color: #fff;
+    box-shadow: 0 3px 0 0 #EEE;
+    border-radius: 10px;
+}
+
+#dice-container {    
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #fff;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 0 0 #EEE;
+}
+
+#player-container {
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #fff;    
+    box-shadow: 0 3px 0 0 #EEE;
+}
+
+.pawn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.pawn {
+    cursor: not-allowed;
+    opacity: 0.2;
+    margin: 5px;
+    max-width: 90px;
+    padding: 10px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    transition: all 1s ease-in-out;
+}
+
+.pawn-pos {
+    font-size: 14px;
+    font-weight: 300;
+    font-style: italic;
+    color: #d7cfcf;
+}
+
+.pawn.active {
+    cursor: default;
+    opacity: 1;
+}
+
+.pawn img {
+    width: 100%;
+}
+
+#dice {
+    display: inline-flex;
+    width: 70px;
+    height: 70px;
+    border-radius: 3px;
+    border: 2px solid #eee;
+    background-color: #fff;
+    box-shadow: 0 3px 0 0 #EEE;    
+    justify-content: center;
+    align-items: center;
+    transition: 1s all ease-in-out;
+    transform: rotate(0deg);
+}
+
+#dice.roll-animation {
+    transform: rotate(360deg);
+}
+
+#dice img {
+    max-width: 90%;
+}
