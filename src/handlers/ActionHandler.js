@@ -1,4 +1,5 @@
 import { actions } from "../constant/actions";
+import { PlayAudio } from '../plugins/audioPlayer';
 
 export class ActionHandler {    
 
@@ -32,6 +33,7 @@ export class ActionHandler {
             isAnswerInCorrect = answer != currentQuestion.correctAnswer;
 
             showAnswer(isAnswerInCorrect);
+            PlayAudio(isAnswerInCorrect ? 'WRONG_ANSWER' : 'RIGHT_ANSWER')
             showQuestionExplanation(currentQuestion.explanation, isAnswerInCorrect);
             
             $('#close-modal-btn').show();

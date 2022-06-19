@@ -13,21 +13,27 @@ export class Player {
     }
 
     #init() {
-        $('#board-container').append(`<img class='player-item' id='player-${this._index}' src='${this._pawn}' />`)
+        $('#board-container').append(`<img class='player-item' id='player-${this._index}' src='${this._pawn}' />`);
+
+        const player = this;
+        $(window).on('resize', function() {            
+            player.updateBoardPosition(0, false);            
+        })
     }   
 
     get boardPosition() {
         return this._boardPosition;
     }
 
-    updateBoardPosition(dice) {        
+    updateBoardPosition(dice, delay = true) {        
         const newPosition = dice + this._boardPosition;
         this._boardPosition = newPosition;
         let positionData = $('#inline-board .item').get(newPosition - 1);
 
+
         setTimeout(() => {
             this.#updatePosition(positionData);
-        }, 1000)    
+        }, delay ? 1000 : 0)    
     }
 
     setStartPosition() {
@@ -42,9 +48,10 @@ export class Player {
         // Assign x,y values with slight deviation
         this._x = positionData.left - getRandomInt(15,35);
         this._y = positionData.top - getRandomInt(65,73);
-        
-        $(`#player-${this._index}`).css('left', this._x + 'px');
-        $(`#player-${this._index}`).css('top', this._y + 'px');
+
+        const player = `#player-${this._index}`;                   
+        $(player).css('left', this._x + 'px');
+        $(player).css('top', this._y + 'px');        
     }    
 
 }

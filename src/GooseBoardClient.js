@@ -69,7 +69,7 @@ export class GooseBoardClient {
     addPlayers() {      
       let PlayerOne = new Player(1, 0, require('/assets/pawns/1_pawn.png'));
       let PlayerTwo = new Player(2, 0, require('/assets/pawns/2_pawn.png'));                    
-      this.players.push(PlayerOne, PlayerTwo);                  
+      this.players.push(PlayerOne, PlayerTwo);            
     }
 
     attachListeners() {
@@ -77,10 +77,10 @@ export class GooseBoardClient {
         $('#roll-dice-btn').prop('disabled', true);
 
         $('#dice').toggleClass('roll-animation');     
-        this.client.moves.rollDie()
+        this.client.moves.rollDie()    
       };
 
-      $('#roll-dice-btn').on('click', handleDiceRoll)
+      $('#roll-dice-btn').on('click', handleDiceRoll);           
     }
 
     update(state) {

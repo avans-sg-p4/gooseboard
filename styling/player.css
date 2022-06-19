@@ -2,6 +2,6 @@
     top: 0;
     left: 0;
     width: 70px;
-    position: absolute;
+    position: absolute;    
     transition: all 500ms ease-in-out;
 }
