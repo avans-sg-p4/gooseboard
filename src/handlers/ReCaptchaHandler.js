@@ -152,6 +152,7 @@ export class ReCaptchaHandler {
       backToBoard() {
         setTimeout(() => {
           $("#quiz-close-modal-btn").click();
+          $('#roll-dice-btn').prop('disabled', false);
         }, 300);
       }
     
