@@ -8,19 +8,14 @@ export const Game = {
         maxMoves: 1,
     },
 
-    phases: {
-        intro: {},
+    phases: {        
         dice: {
             moves: {
                 rollDie
             },
             next: 'play',
             start: true,
-        },
-        play: {
-            moves: {}
-        },
-        end: {}
+        },      
     },
 };
 
