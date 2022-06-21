@@ -99,7 +99,7 @@ export class GooseBoardClient {
       updateDiceIcon(state.G.dieRoll);                   
       updatePlayerPosition(currentPlayer, state);          
 
-      this._actionHandler.commitAction(currentPlayer);
+      this._actionHandler.determineAction(currentPlayer);
 
       updateCurrentPlayerData(currentPlayer, state);
       updateTurnData(state);             
