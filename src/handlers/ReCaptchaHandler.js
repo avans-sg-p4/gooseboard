@@ -2,7 +2,7 @@ import "@tensorflow/tfjs-backend-cpu";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 
 export class ReCaptchaHandler {     
-    _time = 12;
+    _time = 20;
     _isPlaying = false;    
 
     constructor(action, player) {
@@ -15,7 +15,26 @@ export class ReCaptchaHandler {
     }
 
     #showStartScreen() {
-        this.#startGame();            
+        $('#quiz-modal').html(        
+            `<div class="quiz">        
+                <div id="quiz-question">
+                    <div class="quiz-question-inner"></div>
+                </div>
+            </div>
+            <h2 id='loadin-ai'>Loading...</h2>
+            <a href="#" rel="modal:close" style="display: none" id="quiz-close-modal-btn"></a>
+        `);            
+
+        $("#quiz-modal").modal({
+            escapeClose: false,
+            clickClose: false,
+            showClose: false,
+            fadeDuration: 300,
+        });
+    
+        setTimeout(() => {
+            this.#startGame();
+        }, 500)
     }
 
     #startGame() {        
@@ -23,6 +42,8 @@ export class ReCaptchaHandler {
         imageElement.src = this._questions[0].src;
 
         this.detectObjectsOnImage(imageElement).then((result) => {
+            $('#loadin-ai').hide();
+            
             this._aiTime = result.time;
             this._aiScore = result.score;
 
@@ -63,7 +84,7 @@ export class ReCaptchaHandler {
             this._player.updateBoardPosition(-2);
           }
         }, 1000);
-      }
+    }
 
     #showQuestion(question) {
         let currentQuestion = question;
@@ -93,9 +114,7 @@ export class ReCaptchaHandler {
               "Gefeliciteerd! Je was snel genoeg in het geven van de juiste antwoorden. Je hebt hiermee een straf van twee plekken verlies weten te voorkomen.",
               this._aiTime,
               this._aiScore
-            );
-
-            this._player.updateBoardPosition(0);
+            );            
     
             return;
           }
@@ -105,24 +124,16 @@ export class ReCaptchaHandler {
     
         $("#quiz-modal .quiz-answer-btn").off();
         $("#quiz-modal .quiz-answer-btn").on("click", function () {
-          $(".quiz-answer-btn").hide();
-          const answer = $(this).val();
-          isAnswerInCorrect = answer != currentQuestion.correctAnswer;
-    
-          handleAnswer(isAnswerInCorrect);
+            $(".quiz-answer-btn").hide();
+            const answer = $(this).val();
+            isAnswerInCorrect = answer != currentQuestion.correctAnswer;
+        
+            handleAnswer(isAnswerInCorrect);
         });
     
         if (!this._isPlaying) {
-          this._isPlaying = true;
-    
-          $("#quiz-modal").modal({
-            escapeClose: false,
-            clickClose: false,
-            showClose: false,
-            fadeDuration: 300,
-          });
-    
-          this.#startCountdown();
+            this._isPlaying = true;    
+            this.#startCountdown();
         }
       }
 
@@ -133,7 +144,7 @@ export class ReCaptchaHandler {
                 <div class="quiz-end-screen-content">
                     <h2>${title}!</h2>
                     <br />
-                    <p> ${text}</p>
+                    <p>${text}</p>
                     <br />
                     <p>Algoritmes worden voor veel verschillende doelen gebruikt, zo ook bij artificial intelligence (AI). De minigame die jij net hebt gespeeld, is door middel van AI opgelost in ${time} seconden met een zekerheidspercentage van ${certainty}%</p>
                     <br />
@@ -142,8 +153,7 @@ export class ReCaptchaHandler {
             </div>
         `;
     
-          $(".quiz").html(body);
-    
+          $(".quiz").html(body);    
           $(".quiz #quiz-end-screen .btn").off();
           $(".quiz #quiz-end-screen .btn").on("click", this.backToBoard);
         }, 300);
@@ -171,6 +181,7 @@ export class ReCaptchaHandler {
       };
     
       createQuestionElements(currentQuestion) {
+
         const title = `
             <h2 class='quiz-question-title'>${currentQuestion.question}</h2>
             <div class='quiz-question-img'></div>
