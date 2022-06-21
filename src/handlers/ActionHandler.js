@@ -64,7 +64,7 @@ export class ActionHandler {
 
 function createQuestionElements(currentQuestion) {    
     const title = `
-        <h2>${currentQuestion.question}</h2>
+        <h3>${currentQuestion.question}</h3>
         <ul class='question-container'></ul>
     `;
 

@@ -1,3 +1,5 @@
+import { getRandomInt } from "../plugins/random";
+
 export class Player {
     _x;
     _y;
@@ -28,8 +30,15 @@ export class Player {
 
     updateBoardPosition(dice, delay = true) {        
         const newPosition = dice + this._boardPosition;
-        this._boardPosition = newPosition;
-        let positionData = $('#inline-board .item').get(newPosition - 1);
+        this._boardPosition = newPosition;        
+        
+        const index = newPosition == 0 ? 0 : newPosition - 1;
+        let positionData = $('#inline-board .item').get(index);
+
+        // If index is Zero, the player hasnt moved yet
+        if(index == 0) {
+            positionData = $('#inline-board #start');
+        }
 
 
         setTimeout(() => {
@@ -70,10 +79,4 @@ export class Player {
         $(`#player-${this._index}-name`).text(this._name);
     }
 
-}
-
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
