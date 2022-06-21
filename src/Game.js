@@ -9,6 +9,7 @@ export const Game = {
     },
 
     phases: {
+        intro: {},
         dice: {
             moves: {
                 rollDie
@@ -18,7 +19,8 @@ export const Game = {
         },
         play: {
             moves: {}
-        }
+        },
+        end: {}
     },
 };
 

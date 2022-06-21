@@ -40,6 +40,10 @@ export class Player {
             positionData = $('#inline-board #start');
         }
 
+        // End game        
+        if(index > 55) {
+            positionData = $('#inline-board #end');
+        }
 
         setTimeout(() => {
             this.#updatePosition(positionData);
