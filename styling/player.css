@@ -5,3 +5,36 @@
     position: absolute;    
     transition: all 500ms ease-in-out;
 }
+
+.player-name {
+    margin-top: 5px;    
+    display: inline-block;
+}
+
+
+/* Choose player */
+.choose-player-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.choose-player-container .player {
+    padding: 25px;
+    border: 3px solid #eee;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.choose-player-container .player:first-child {
+    border-color: #3B8BFE;
+}
+
+.choose-player-container .player:nth-child(2) {
+    border-color: #CC3CFD;
+}
+
+.choose-player-container .player img {
+    width: 140px;
+    margin-bottom: 10px;
+}

@@ -4,6 +4,11 @@
     font-family: 'Kdam Thmor Pro', sans-serif;
 }
 
+p {
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 20px;
+}
+
 body {
     background-image: url('/assets/gameboard_empty.png');
     background-repeat: no-repeat;
@@ -13,6 +18,20 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+#goose {
+    width: 150px;
+    animation: wiggleGoose 5s infinite;
+    animation-timing-function: linear;
+}
+
+/* Animation Keyframes*/
+@keyframes wiggleGoose {
+    0% { transform: rotate(0deg);}
+    50% { transform: rotate(10deg); }
+    80% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
 }
 
 #start-screen {
@@ -42,36 +61,6 @@ body {
     padding: 45px;
     box-sizing: border-box;
     text-align: center;
-}
-
-.btn {
-    border-radius: 60px;
-    border: none;
-    padding: 12px 30px;
-    min-width: 150px;
-    text-transform: uppercase;
-    font-weight: bold;
-    cursor: pointer;
-    background-color: #C53EFC;
-    color: #fff;
-    transition: all 200ms ease;
-    box-shadow: 0 3px 0 0 #8F05C7;
-}
-
-.btn:disabled {
-    background-color: #E7E6E6;
-    box-shadow: 0 3px 0 0 #CCCCCC;
-    cursor:not-allowed;
-}
-
-.btn.danger {
-    background-color: #FC3E3E;
-    box-shadow: 0 3px 0 0 #C70511;
-} 
-
-.btn:active {
-    transform: translateY(3px);
-    box-shadow: none;
 }
 
 #board {    
@@ -169,4 +158,40 @@ body {
 
 #dice img {
     max-width: 90%;
+}
+
+#introductionModal {
+    padding: 35px !important;
+    max-width: 650px !important;
+}
+
+#introductionModalContent {
+    text-align: center;
+    padding: 20px;
+}
+
+.example-position {
+    display: flex;
+    align-items: center;
+    border: 2px solid #CC3CFD;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.example-position img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    flex: none;
+}
+
+.example-position p {
+    text-align: left;
+    margin-left: 20px;
+    font-size: 16px;
+}
+
+.modal-slide {
+    display: none;
 }

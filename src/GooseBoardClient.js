@@ -48,8 +48,8 @@ export class GooseBoardClient {
           </div>
           <div id="player-container">            
             <div class='pawn-container'>
-            <div class='pawn' id='pawn-1'><img src='${ require('/assets/pawns/2_pawn.png')}' /> Player 1 <br/> <p class='pawn-pos'>Place <span class='position'>0</span></p></div>
-            <div class='pawn' id='pawn-2'><img src='${ require('/assets/pawns/1_pawn.png')}' /> Player 2 <br/> <p class='pawn-pos'>Place <span class='position'>0</span></p></div>
+              <div class='pawn' id='pawn-1'><img src='${ require('/assets/pawns/2_pawn.png')}' /> <span id='player-1-name' class='player-name'>Player 1</span> <br/> <p class='pawn-pos'>Place <span class='position'>0</span></p></div>
+              <div class='pawn' id='pawn-2'><img src='${ require('/assets/pawns/1_pawn.png')}' /> <span id='player-2-name' class='player-name'>Player 2</span> <br/> <p class='pawn-pos'>Place <span class='position'>0</span></p></div>
             </div>
           </div>          
         </div>
@@ -67,8 +67,8 @@ export class GooseBoardClient {
     }
 
     addPlayers() {      
-      let PlayerOne = new Player(1, 0, require('/assets/pawns/1_pawn.png'));
-      let PlayerTwo = new Player(2, 0, require('/assets/pawns/2_pawn.png'));                    
+      const PlayerOne = new Player(1, 0, require('/assets/pawns/1_pawn.png'), 'Player 1');
+      const PlayerTwo = new Player(2, 0, require('/assets/pawns/2_pawn.png'), 'Player 2');                    
       this.players.push(PlayerOne, PlayerTwo);            
     }
 
@@ -81,6 +81,16 @@ export class GooseBoardClient {
       };
 
       $('#roll-dice-btn').on('click', handleDiceRoll);           
+
+      const players = this.players;
+      $('#btn-play-game').on('click', function() {
+          let playerOne = $('#player-1-name-input').val() != '' ? $('#player-1-name-input').val() : 'Player 1';
+          let playerTwo = $('#player-2-name-input').val() != '' ? $('#player-2-name-input').val() : 'Player 2';
+
+          players[0].name = playerOne;
+          players[1].name = playerTwo;
+
+      })
     }
 
     update(state) {

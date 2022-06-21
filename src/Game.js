@@ -19,7 +19,7 @@ export const Game = {
         play: {
             moves: {}
         }
-    },    
+    },
 };
 
 function rollDie(G, ctx) {

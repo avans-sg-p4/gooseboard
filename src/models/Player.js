@@ -2,27 +2,28 @@ export class Player {
     _x;
     _y;
     
-    constructor(index, boardPosition = 0, pawn) {
+    constructor(index, boardPosition = 0, pawn, name) {
         this._index = index;
         this._boardPosition = boardPosition;
         this._x = 0;
         this._y = 0;
         this._pawn = pawn;
+        this._name = name;
 
         this.#init()
-    }
-
-    #init() {
-        $('#board-container').append(`<img class='player-item' id='player-${this._index}' src='${this._pawn}' />`);
-
-        const player = this;
-        $(window).on('resize', function() {            
-            player.updateBoardPosition(0, false);            
-        })
     }   
 
     get boardPosition() {
         return this._boardPosition;
+    }
+
+    get name() {
+        return this._name;
+    }
+
+    set name(name) {
+        this._name = name;
+        this.#setName();
     }
 
     updateBoardPosition(dice, delay = true) {        
@@ -52,7 +53,22 @@ export class Player {
         const player = `#player-${this._index}`;                   
         $(player).css('left', this._x + 'px');
         $(player).css('top', this._y + 'px');        
-    }    
+    }
+    
+    #init() {
+        $('#board-container').append(`<img class='player-item' id='player-${this._index}' src='${this._pawn}' />`);
+        this.#setName();
+
+        const player = this;
+        $(window).on('resize', function() {            
+            player.updateBoardPosition(0, false);            
+        })
+    }
+
+    #setName() {
+        // Update name on the board
+        $(`#player-${this._index}-name`).text(this._name);
+    }
 
 }
 
