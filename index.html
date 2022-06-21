@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styling/question-card.css">
     <link rel="stylesheet" href="styling/player.css">
     <link rel="stylesheet" href="styling/form.css">
+    <link rel="stylesheet" href="styling/recaptcha.css">
 
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 
@@ -120,6 +121,15 @@
                 <a href="#" rel="modal:close" style="display: none;" id="pseudo-close-modal-btn">Close</a>
             </div>
         </div>
+    </div>
+
+    <div id="quiz-modal" class="modal quiz-modal">
+        <div class="quiz">
+            <div id="quiz-question">
+                <div class="quiz-question-inner"></div>
+            </div>
+        </div>
+        <a href="#" rel="modal:close" style="display: none" id="quiz-close-modal-btn"></a>
     </div>
 
     <div id="app"></div>

@@ -31,12 +31,12 @@ export class Player {
     updateBoardPosition(dice, delay = true) {        
         const newPosition = dice + this._boardPosition;
         this._boardPosition = newPosition;        
-        
-        const index = newPosition == 0 ? 0 : newPosition - 1;
+
+        const index = newPosition - 1;
         let positionData = $('#inline-board .item').get(index);
 
-        // If index is Zero, the player hasnt moved yet
-        if(index == 0) {
+        // If index is below zero, the player hasnt moved yet
+        if(index < 0) {
             positionData = $('#inline-board #start');
         }
 

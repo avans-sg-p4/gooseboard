@@ -6,8 +6,7 @@ export class QuestionHandler {
         this._player = player;
     }
 
-    commitAction() {
-        console.log('test question');
+    commitAction() {        
         this.#showQuestion(this._action, this._player);
     }
 
@@ -39,7 +38,7 @@ export class QuestionHandler {
                 $('#roll-dice-btn').prop('disabled', false);  
                 
                 if(isAnswerInCorrect) {
-                    player.updateBoardPosition(-2);                    
+                    player.updateBoardPosition(-2);
                 }
             });
         })

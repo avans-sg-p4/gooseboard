@@ -1,6 +1,8 @@
 import {Question} from '../models/Question';
+import { ReCaptcha } from '../models/ReCaptcha';
 
 let actions = new Map();
+let recaptcha = new ReCaptcha();
 
 // Question 7
 actions.set(7, new Question(
@@ -13,6 +15,9 @@ actions.set(7, new Question(
     0,
     'Dit is omdat een algoritme van sociale media bekijkt wat je allemaal bekijkt en laat dit dan zien op je pagina.'    
 ));
+
+// Question 9
+actions.set(9, recaptcha);
 
 // Question 12
 actions.set(12, new Question(
@@ -73,6 +78,9 @@ actions.set(29, new Question(
     'Een algoritme houdt in de gaten wat je allemaal doet op het internet, dus ja'   
 ));
 
+// Question 32
+actions.set(32, recaptcha);
+
 // Question 35
 actions.set(35, new Question(
     "Wat is het grootste twijfelpunt van een algoritme",
@@ -85,6 +93,9 @@ actions.set(35, new Question(
     'Privacy blijft altijd het grootste vraagteken bij algoritmes. Er zijn veel vragen of al je data wordt opgeslagen, waardoor je niet veel privacy zou hebben'   
 ));
 
+// Question 39
+actions.set(39, recaptcha);
+
 // Question 41
 actions.set(41, new Question(
     "Waar kan een algoritme niet voor ingezet worden",
@@ -96,6 +107,9 @@ actions.set(41, new Question(
     1,
     'Dit is omdat een algoritme niet ingezet kan worden voor het berekenen van emoties, omdat een algoritme zich niet bewust is van de wereld; het herkent objecten, maar heeft geen benul van wat een object doet.'   
 ));
+
+// Question 44
+actions.set(44, recaptcha);
 
 // Question 47
 actions.set(47, new Question(

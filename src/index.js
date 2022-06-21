@@ -41,12 +41,12 @@ $('#start-game-btn').on('click', () => {
     });
 
     // Show introduction modal after 500ms
-    setTimeout(() => {
-        $("#introductionModal").modal({
-            escapeClose: false,
-            clickClose: false,
-            showClose: false,
-            fadeDuration: 500
-        });
-    }, 500);    
+    // setTimeout(() => {
+    //     $("#introductionModal").modal({
+    //         escapeClose: false,
+    //         clickClose: false,
+    //         showClose: false,
+    //         fadeDuration: 500
+    //     });
+    // }, 500);    
 });
